@@ -29,4 +29,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function getAuthPassword(): string
+    {
+        return $this->password;
+    }
+    public function getRememberTokenName(): string
+    {
+        return 'remember_token';
+    }
+    protected function hidden(): array
+    {
+        return ['password', 'remember_token'];
+    }
 }
